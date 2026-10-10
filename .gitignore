@@ -1,0 +1,7 @@
+.DS_Store
+*.vpp_xbox2
+*.xex
+*.img
+*.bin
+# local only: research scripts, not part of the release
+tools/
