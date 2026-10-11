@@ -27,7 +27,7 @@
 
 local PLAYER      = 0x8309ABEC   -- pointer to the player object (0 = no game loaded)
 local OBJECTS     = 0x830866C8   -- handle table, 16 bytes per entry
-local UPDATE      = 0x82209E30   -- game update (the trainer and Saints Tweaks hook the same)
+local UPDATE      = 0x82209E30   -- game update (the trainer hooks the same)
 local MULTIPLAYER = 0x8370E9F6
 local CUTSCENE_A, CUTSCENE_B = 0x8370D991, 0x8370D990
 local MENU_A, MENU_B = 0x839E0DF8, 0x839E0FB0   -- a screen is up (the pause map is one)
@@ -64,7 +64,7 @@ local INVULNERABLE = 0x00100000  -- flag bit at player+216 (the trainer's God Mo
 
 local S = {
   auto         = wml.setting("teleport_on_map_waypoint", true),
-  -- Keys default to number keys, like Saints Tweaks: on a Mac keyboard the
+  -- Keys default to number keys: on a Mac keyboard the
   -- F-keys are brightness and volume unless Fn is held, so they are avoided.
   key          = tostring(wml.setting("teleport_key", "8")),
   close_map    = wml.setting("close_map", true),
@@ -84,8 +84,8 @@ local function vec(a) return wml.read_f32(a), wml.read_f32(a + 4), wml.read_f32(
 
 -- ------------------------------------------------------------ game calls
 --
--- Game functions are called from inside the update hook, the way Saints
--- Tweaks and the trainer do it: r1 is lowered to leave the callee stack room
+-- Game functions are called from inside the update hook, the way the
+-- trainer does it: r1 is lowered to leave the callee stack room
 -- (the collision probe alone takes 11 KB) and our own small buffers live in
 -- the gap just below the hook's r1.
 local SCRATCH = 0x6000
@@ -128,7 +128,7 @@ local function in_menu()
   return wml.read_u32(MENU_A) ~= 0 or wml.read_u32(MENU_B) ~= 0
 end
 
--- The vehicle the player sits in (the same test Saints Tweaks and the keyboard controls use).
+-- The vehicle the player sits in (the same test the keyboard controls use).
 local function vehicle_object(p)
   if wml.read_u32(p + 3456) ~= 0 then return nil end
   local handle = wml.read_u32(p + 2496)

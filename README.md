@@ -32,10 +32,10 @@ as the host). In a multiplayer match the mod stays out of the way.
 3. Start Whompay's Mod Loader, tick **Teleport to Waypoint**, press **Play**.
 
 **Windows and Mac.** The teleport itself is a script and runs on both. The
-F8 position readout is a small Windows add-on (`coords.dll`); on the Mac
+position readout (key 9) is a small Windows add-on (`coords.dll`); on the Mac
 build it simply doesn't load and everything else works the same.
 
-Works alongside Saints Tweaks, More Homies, Living Stilwater and the trainer.
+Works alongside More Homies, Living Stilwater and the trainer.
 Private play only, like every gameplay mod. Contains no game files. Not made
 by or connected to the Saints Reborn project, Volition or Deep Silver.
 
@@ -59,8 +59,8 @@ by or connected to the Saints Reborn project, Volition or Deep Silver.
 Both can be changed in `mod.ini` (`teleport_key`, `coords_key`) to any letter,
 digit or F1–F12, or left blank for none. The defaults are number keys on
 purpose: they work the same on Windows and on a Mac keyboard, where the
-F-keys are brightness and volume unless you hold Fn. Keys 0–7 are used by
-Saints Tweaks, so these two don't clash with it.
+F-keys are brightness and volume unless you hold Fn. On a Mac, 8 and 9 are
+the plain number keys above the letters, no Fn needed.
 
 ## Settings
 
